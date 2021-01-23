@@ -1,2 +1,0 @@
-# beacon
-learning notes
