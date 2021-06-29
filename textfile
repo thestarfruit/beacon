@@ -1,0 +1,21 @@
+#文本文件和二进制文件
+textFile = open("file.txt","rt") #t 表示文本文件方式
+print(textFile.readline())
+textFile.close()
+binFile = open("file.txt","rb") #b 表示二进制文件方式
+print(binFile.readline())
+binFile.close()
+#逐行打印
+fname = input("请输入要打开的文件: ")
+fo = open(fname, "r")
+for line in fo.readlines():
+    print(line)
+fo.close()
+#写入列表
+fname = input("请输入要写入的文件: ")
+fo = open(fname, "w+")
+ls = ["Python", "Go", "Java"]
+fo.writelines(ls)
+for line in fo:
+    print(line)
+fo.close()
