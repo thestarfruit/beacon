@@ -1,0 +1,31 @@
+GifExtractor
+from PIL import Image
+im = Image.open('pybit.gif')      # 读入一个GIF文件
+try:
+    im.save('picframe{:02d}.png'.format(im.tell()))
+    while True:
+        im.seek(im.tell()+1)
+        im.save('picframe{:02d}.png'.format(im.tell()))
+except:
+    print("处理结束")
+
+ChangeRGB
+from PIL import Image
+im = Image.open('birdnest.jpg')
+r, g, b = im.split()
+om = Image.merge("RGB", (b, g, r))
+om.save('birdnestBGR.jpg')
+
+GetImageContour
+from PIL import Image
+from PIL import ImageFilter
+im = Image.open('birdnest.jpg')
+om = im.filter(ImageFilter.CONTOUR)
+om.save('birdnestContour.jpg')
+
+EnImageContrast
+from PIL import Image
+from PIL import ImageEnhance
+im = Image.open('birdnest.jpg')
+om = ImageEnhance.Contrast(im)
+om.enhance(20).save('birdnestEnContrast.jpg')
